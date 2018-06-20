@@ -212,7 +212,7 @@ static const VSFrameRef *VS_CC motionMaskGetFrame(int n, int activationReason, v
 
             if (scene_change) {
                 for (int y = 0; y < height; y++)
-                    d->memset_function(pDst, d->nSceneChangeValue, width);
+                    d->memset_function(pDst + y * stride, d->nSceneChangeValue, width);
             } else {
                 d->mask_function(pDst, pSrc1, pSrc2, stride, d->nLowThresholds[plane], d->nHighThresholds[plane], width, height, pixel_max);
             }
